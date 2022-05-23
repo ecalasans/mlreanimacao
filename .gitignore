@@ -1,2 +1,4 @@
 wandb/
 .idea/
+artifacts/
+.pytest_cache/
