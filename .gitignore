@@ -2,3 +2,4 @@ wandb/
 .idea/
 artifacts/
 .pytest_cache/
+venv/

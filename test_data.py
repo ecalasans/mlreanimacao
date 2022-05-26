@@ -57,16 +57,18 @@ def test_values_consistency(data):
             assert data[col_name].values.all() != np.nan, f"Coluna {col_name} está inconsistente!"
         else:
             if col_name == 'sexo':
-                assert data[col_name].values.all() in ["Feminino", "Masculino", "Indefinido"], \
+                assert data[col_name].values.all() in ["Feminino", "Masculino"], \
                     f"Coluna {col_name} está inconsistente!"
             elif col_name == 'dm':
-                assert data[col_name].values.all() in ["Sim", 'Não'], \
+                assert data[col_name].values.all() in ["s_dm", 'n_dm', 'd_dm'], \
                     f"Coluna {col_name} está inconsistente!"
             elif col_name == 'reanimacao':
-                assert data[col_name].values.all() in ["Sim", 'Não'], \
+                assert data[col_name].values.all() in ["sr", 'nr'], \
                     f"Coluna {col_name} está inconsistente!"
             else:
-                assert data[col_name].values.all() in ["Sim", 'Não', 'Desconhecido'], \
+                assert data[col_name].values.all().startswith("s") | \
+                       data[col_name].values.all().startswith("n") | \
+                       data[col_name].values.all().startswith("d"), \
                     f"Coluna {col_name} está inconsistente!"
 
 
